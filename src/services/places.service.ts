@@ -22,4 +22,8 @@ export class PlacesService {
             }
         );
     }
+
+    clearAllStorage() {
+        return this.storage.clear();
+    }
 }

@@ -1,19 +1,31 @@
 import { Component } from '@angular/core';
-import {ViewController, navParams } from 'ionic-angular';
+import {ViewController, NavParams } from 'ionic-angular';
 
+declare var google;
 
 @Component({
   selector: 'page-place',
   templateUrl: 'place.html',
 })
 export class PlacePage {
-  lat: number;
-  lng: number;
+  location: {lat: number,lng: number}
+  map: any;
 
-  constructor(private viewCtrl: ViewController, private navParams: navParams) {
-    this.lat = this.navParams.data.location.lat;
-    this.lng = this.navParams.data.location.lng;
+  constructor(private viewCtrl: ViewController, private NavParams: NavParams) {
+    this.location = this.NavParams.get('location');
+    //this.location = this.NavParams.data.location;     esta forma deberia servir tambien
   }
+
+  ionViewDidEnter(){
+    //Set latitude and longitude of some place
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      center: { 
+        lat: this.location.lat,//    cambia los valores de la latitud y la
+        lng: this.location.lng },//  longitud si no quieres que se vea tu ubicación
+      zoom: 15
+    });
+  }
+  
 
   onDismiss(){
     this.viewCtrl.dismiss();

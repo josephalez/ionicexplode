@@ -35,5 +35,9 @@ export class HomePage {
     console.log(place);
   }
 
+  clearAllStorage(){
+    this.placesService.clearAllStorage();
+  }
+
   
 }

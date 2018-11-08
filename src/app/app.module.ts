@@ -13,7 +13,6 @@ import { PlacesService } from "./../services/places.service";
 
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
-import { AgmCoreModule } from '@agm/core';
 import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
@@ -27,10 +26,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicStorageModule.forRoot(),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCgE4Pu__oy0Q5FYx5F2-TEDrs3XoiaoRE'
-    })
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
